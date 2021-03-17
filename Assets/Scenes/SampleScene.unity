@@ -473,6 +473,7 @@ GameObject:
   - component: {fileID: 1737248204}
   - component: {fileID: 1737248206}
   - component: {fileID: 1737248205}
+  - component: {fileID: 1737248207}
   m_Layer: 5
   m_Name: "po\xE4ngssystem"
   m_TagString: Untagged
@@ -540,3 +541,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1737248203}
   m_CullTransparentMesh: 0
+--- !u!114 &1737248207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1737248203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 281afd5c51b62a940836ef7bbf6cb88d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Points: 90
+  siffra: {fileID: 1737248205}
