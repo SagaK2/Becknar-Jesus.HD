@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float speed;
-    public float jumpforce;
-    public float moveinput;
+    public float speed; //Hastighet av hoppet /Theo
+    public float jumpforce; //Hur ögt man hoppar
+    public float moveinput; 
     public Rigidbody2D rb;
 
     void Start()
@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow))   //Om du trycket up arrow = Hoppa /Theo
         {
             rb.velocity = Vector2.up * jumpforce;
         }
