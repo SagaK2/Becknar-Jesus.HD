@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.WSA.Sharing;
 
 public class PlayerBehaviour : MonoBehaviour
 {
@@ -20,5 +21,7 @@ public class PlayerBehaviour : MonoBehaviour
             //Om man trycker på esc kommer man se en "pause meny"
             pauseScreen.SetActive(true);
         }
+        
+
     }
 }
