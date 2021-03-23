@@ -5,9 +5,14 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float speed; //Hastighet av hoppet /Theo
-    public float jumpforce; //Hur ögt man hoppar
+    public float jumpforce; //Hur högt man hoppar
     public float moveinput; 
     public Rigidbody2D rb;
+    //gör så att gubben kan röra på sig (hoppa) när man trycker på up arrow -Saga
+    public Animator animator;
+    //Jag gjorde två olika "menyer". Som man bara ser när man pausar eller dör. Jag fixar resten med slutscenen sen när Melvin gjort hindrena -Saga
+    public GameObject endScreen;
+    public GameObject pauseScreen;
 
     void Start()
     {
@@ -20,6 +25,13 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow))   //Om du trycket up arrow = Hoppa /Theo
         {
             rb.velocity = Vector2.up * jumpforce;
+            //verkar inte fungera, vet inte varför -Saga
+            animator.SetBool("jump", true);
+        }else if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            //Om man trycker på esc kommer man se en "pause meny"
+            pauseScreen.SetActive(true);
         }
+
     }
 }
