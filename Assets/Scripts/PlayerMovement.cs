@@ -34,4 +34,12 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
+    //När gubben kommer ner på marken efter att ha hoppat slutar den att hoppa. Hann inte jobba mer med det här. Kan göra det sen -Saga
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Ground")
+        {
+            animator.SetBool("jump", false);
+        }
+    }
 }
