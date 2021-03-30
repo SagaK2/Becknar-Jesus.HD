@@ -13,24 +13,34 @@ public class PlayerMovement : MonoBehaviour
     //Jag gjorde två olika "menyer". Som man bara ser när man pausar eller dör. Jag fixar resten med slutscenen sen när Melvin gjort hindrena -Saga
     public GameObject endScreen;
     public GameObject pauseScreen;
-
+    //Man kan bara hoppa ett visst par gånger så att man inte kan flyga
+    int currentJump = 0;
+    int maxJump = 3;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))   //Om du trycket up arrow = Hoppa /Theo
+        if (Input.GetKeyDown(KeyCode.UpArrow) && currentJump <= maxJump)   //Om du trycket up arrow = Hoppa /Theo - Och om man inte hoppat max antalet -Saga
         {
             rb.velocity = Vector2.up * jumpforce;
-            //verkar inte fungera, vet inte varför -Saga
             animator.SetBool("jump", true);
-        }else if(Input.GetKeyDown(KeyCode.Escape))
+            currentJump++; //Den räknar varje gång man hoppar tills max antalet -Saga
+            print("Jump");
+        }
+        else if(Input.GetKeyDown(KeyCode.Escape))
         {
             //Om man trycker på esc kommer man se en "pause meny"
-            pauseScreen.SetActive(true);
+            pauseScreen.SetActive(!pauseScreen.activeSelf);
+            animator.SetBool("standing", true);
+        }
+        else if (Input.GetKeyDown(KeyCode.S))
+        {
+            //Sream button -Saga
+            animator.SetBool("scream", true);
         }
 
     }
@@ -40,6 +50,9 @@ public class PlayerMovement : MonoBehaviour
         if(collision.gameObject.tag == "Ground")
         {
             animator.SetBool("jump", false);
+            animator.SetBool("run", true);
+            currentJump = 0;
+            //Antingen stannar det vid att run är true och jump blir också det eller att jump är true och stannar vid det.
         }
     }
 }
