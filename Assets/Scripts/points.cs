@@ -31,11 +31,12 @@ public class points : MonoBehaviour
         DisplayTime(Points);
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         //Ifall man rör ett hinder så dör man och då ska tiden stoppas. JR
         tidscheck = false;
-    }
+    } 
+    
     //Den ska visa den visuella tiden (den utan en massa decimaler som datorn har när den räknar). JR
     void DisplayTime(float visualTime)
     {
