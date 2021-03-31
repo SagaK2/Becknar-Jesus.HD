@@ -42,17 +42,17 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("standing", true);
             animator.SetBool("run", false);
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             //Sream button -Saga
             animator.SetBool("scream", true);
+            animator.SetBool("run", false);
         }
 
         if(currentJump == 0 && animator.GetBool("standing") == false)
         {
             animator.SetBool("jump", false);
             animator.SetBool("run", true);
-            print("00");
         }
 
         if (!pauseScreen.activeSelf)
