@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        //test -Saga
+        animator.SetBool("run", true);
+        animator.SetBool("jump", false);
     }
 
     
@@ -28,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.velocity = Vector2.up * jumpforce;
             animator.SetBool("jump", true);
+            animator.SetBool("run", false);
             currentJump++; //Den räknar varje gång man hoppar tills max antalet -Saga
             print("Jump");
         }
@@ -36,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
             //Om man trycker på esc kommer man se en "pause meny"
             pauseScreen.SetActive(!pauseScreen.activeSelf);
             animator.SetBool("standing", true);
+            animator.SetBool("run", false);
         }
         else if (Input.GetKeyDown(KeyCode.S))
         {
@@ -43,15 +48,28 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("scream", true);
         }
 
+        if(currentJump == 0 && animator.GetBool("standing") == false)
+        {
+            animator.SetBool("jump", false);
+            animator.SetBool("run", true);
+            print("00");
+        }
+
+        if (!pauseScreen.activeSelf)
+        {
+            animator.SetBool("standing", false);
+            animator.SetBool("run", true);
+        }
     }
     //När gubben kommer ner på marken efter att ha hoppat slutar den att hoppa. Hann inte jobba mer med det här. Kan göra det sen -Saga
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground")
         {
             animator.SetBool("jump", false);
             animator.SetBool("run", true);
             currentJump = 0;
+            print("Ground2");
             //Antingen stannar det vid att run är true och jump blir också det eller att jump är true och stannar vid det.
         }
     }
