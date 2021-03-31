@@ -16,9 +16,16 @@ public class PlayerMovement : MonoBehaviour
     //Man kan bara hoppa ett visst par gånger så att man inte kan flyga
     int currentJump = 0;
     int maxJump = 3;
+
+    //Det här ska vara till scream button. Det här ska kunna förgöra saker på banan -Saga
+    public Transform firePoint;
+    //Det här är ljudvågorna som ska skada.
+    public GameObject shockWave;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
         //test -Saga
         animator.SetBool("run", true);
         animator.SetBool("jump", false);
@@ -42,13 +49,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("standing", true);
             animator.SetBool("run", false);
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            //Sream button -Saga
-            animator.SetBool("scream", true);
-            animator.SetBool("run", false);
-        }
-
         if(currentJump == 0 && animator.GetBool("standing") == false)
         {
             animator.SetBool("jump", false);
@@ -60,7 +60,21 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("standing", false);
             animator.SetBool("run", true);
         }
+
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            //Sream button -Saga
+            animator.SetBool("scream", true);
+            animator.SetBool("run", false);
+            Shoot();
+        }
     }
+
+    void Shoot()
+    {
+        Instantiate(shockWave, firePoint.position, firePoint.rotation);
+    }
+
     //När gubben kommer ner på marken efter att ha hoppat slutar den att hoppa. Hann inte jobba mer med det här. Kan göra det sen -Saga
     private void OnCollisionEnter2D(Collision2D collision)
     {
