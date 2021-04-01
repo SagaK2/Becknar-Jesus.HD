@@ -17,8 +17,8 @@ public class ShockWave : MonoBehaviour
     {
         if (collision.gameObject.tag == "ShDestroy")
         {
-            Destroy(gameObject);
-            print("Trigger");
+            transform.position = new Vector2(-7.22f, 0);
+            speed = 0;
         }
     }
 }
