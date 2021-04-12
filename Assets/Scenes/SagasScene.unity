@@ -315,6 +315,7 @@ GameObject:
   - component: {fileID: 926763817}
   - component: {fileID: 926763819}
   - component: {fileID: 926763818}
+  - component: {fileID: 926763820}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -407,6 +408,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &926763820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 926763816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec82ea3226eda4a4c9cd80564626ab2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
+  jumpforce: 0
+  moveinput: 0
+  rb: {fileID: 0}
+  animator: {fileID: 0}
+  endScreen: {fileID: 0}
+  pauseScreen: {fileID: 0}
+  firePoint: {fileID: 0}
+  shockWave: {fileID: 0}
 --- !u!1 &1203910106
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,7 +544,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1203910106}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.51, y: -0.2, z: 0}
+  m_LocalPosition: {x: 0.06, y: -0.01, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 0.995}
   m_Children: []
   m_Father: {fileID: 926763817}
@@ -541,7 +563,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  rb: {fileID: 0}
+  damage: 1
+  rb: {fileID: 1203910107}
 --- !u!1 &1672015136
 GameObject:
   m_ObjectHideFlags: 0
@@ -632,7 +655,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2052968745}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.1, y: -0.2, z: 0}
+  m_LocalPosition: {x: -0.1, y: 0.07, z: 0}
   m_LocalScale: {x: 0.995, y: 1.4925001, z: 0.995}
   m_Children: []
   m_Father: {fileID: 926763817}
@@ -649,6 +672,7 @@ GameObject:
   - component: {fileID: 2127632840}
   - component: {fileID: 2127632842}
   - component: {fileID: 2127632841}
+  - component: {fileID: 2127632843}
   m_Layer: 5
   m_Name: Ex-enemy
   m_TagString: Untagged
@@ -712,3 +736,15 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127632839}
   m_CullTransparentMesh: 0
+--- !u!114 &2127632843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2127632839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2003bc6377ed1804f8660e95b0bb5c6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
