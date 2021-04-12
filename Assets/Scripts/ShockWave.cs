@@ -8,10 +8,15 @@ public class ShockWave : MonoBehaviour
     public float speed = 20f;
     public int damage = 1;
     public Rigidbody2D rb;
-    void Start()
+    void Update()
     {
-        rb.velocity = transform.right * speed;
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            rb.velocity = transform.right * speed;
+        }
+        
     }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
