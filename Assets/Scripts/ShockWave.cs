@@ -24,6 +24,7 @@ public class ShockWave : MonoBehaviour
         {
             transform.position = new Vector2(-7.22f, 0);
             speed = 0;
+            
         }
     }
 }
