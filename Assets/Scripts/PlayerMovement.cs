@@ -13,7 +13,8 @@ public class PlayerMovement : MonoBehaviour
     //Jag gjorde två olika "menyer". Som man bara ser när man pausar eller dör. Jag fixar resten med slutscenen sen när Melvin gjort hindrena -Saga
     public GameObject endScreen;
     public GameObject pauseScreen;
-   
+    public bool hasJumped = false;
+
 
     //Det här ska vara till scream button. Det här ska kunna förgöra saker på banan -Saga
     public Transform firePoint;
@@ -32,11 +33,12 @@ public class PlayerMovement : MonoBehaviour
     
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))   //Om du trycket up arrow = Hoppa /Theo 
+        if (Input.GetKeyDown(KeyCode.UpArrow) && !hasJumped)   //Om du trycket up arrow = Hoppa /Theo 
         {
             rb.velocity = Vector2.up * jumpforce;
             animator.SetBool("jump", true);
             animator.SetBool("run", false);
+            hasJumped = true;
         }
         else if(Input.GetKeyDown(KeyCode.Escape))
         {
@@ -79,6 +81,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("jump", false);
             animator.SetBool("run", true);
             print("Ground2");
+            hasJumped = false;  
         }
     }
 }
