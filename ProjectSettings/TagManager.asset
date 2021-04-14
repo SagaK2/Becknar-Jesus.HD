@@ -44,3 +44,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: bakgrund
+    uniqueID: 1289676551
+    locked: 0
+  - name: annat
+    uniqueID: 4099107455
+    locked: 0
