@@ -484,14 +484,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec82ea3226eda4a4c9cd80564626ab2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  jumpforce: 5
+  speed: 5
+  jumpforce: 7
   moveinput: 0
   rb: {fileID: 162546597}
   animator: {fileID: 162546594}
   endScreen: {fileID: 0}
   pauseScreen: {fileID: 135086405}
-  hasJumped: 0
   firePoint: {fileID: 11608756}
   shockWave: {fileID: 1849657865}
 --- !u!61 &162546599
@@ -1173,7 +1172,7 @@ GameObject:
   - component: {fileID: 903418025}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
